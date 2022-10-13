@@ -1,6 +1,8 @@
 """
 This code will not work without Python 3 and Pillow installed on the host machine,
 ensure both are installed before running the script.
+Place this file in your resource pack folder and run it once.
+If you experience any errors, feel free to report them via the issue tracker, or my youtube page.
 """
 
 from PIL import Image, ImageEnhance
