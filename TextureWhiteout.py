@@ -1,7 +1,12 @@
+"""
+This code will not work without Python 3 and Pillow installed on the host machine,
+ensure both are installed before running the script.
+"""
+
 from PIL import Image, ImageEnhance
 import os
 
-#Pillow method
+#Pillow Procedure
 def whiteout(im):
     image = Image.open(im).convert("RGBA")
 
@@ -15,17 +20,17 @@ def whiteout(im):
     image_filtered.save(im)
 
 
-#Loop
+#Recursive Loop
 def findall(dir):
     os.chdir(dir)
     for f in os.listdir("."):
         if f.endswith(".png"):
             whiteout(f)
-        if not f.endswith(".png") and not f.endswith(".mcmeta") and not f.endswith(".json")\
-             and not f.endswith(".properties") and not f.endswith(".zip") and not f.endswith(".ini"):
+        elif f.find(".") == -1:
             findall(f)
     os.chdir("..")
 
+#Call
 findall(".")
 print("Images Whitened")
 input("")
